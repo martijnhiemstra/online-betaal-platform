@@ -1,0 +1,32 @@
+{
+  "name": "martijnhiemstra/online-betaal-platform",
+  "description": "PHP Package for onlinebetaalplatform",
+  "keywords": [
+    "payment",
+    "php",
+    "onlinebetaalplatform"
+  ],
+  "homepage": "https://github.com/martijnhiemstra/online-betaal-platform",
+  "license": "GNUv3",
+  "authors": [
+    {
+      "name": "Martijn Hiemstra",
+      "email": "martijn@martijnhiemstra.nl"
+    }
+  ],
+  "autoload-dev": {
+    "psr-4": {"Tests\\": "tests/"}
+  },
+  "require": {
+    "php": ">=5.5.9",
+    "guzzlehttp/guzzle": "~6.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.1"
+  },
+  "autoload": {
+    "psr-0": {
+      "OnlineBetaalPlatform": "src/"
+    }
+  }
+}
