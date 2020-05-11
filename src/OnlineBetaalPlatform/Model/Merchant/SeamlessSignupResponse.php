@@ -3,13 +3,10 @@
 namespace OnlineBetaalPlatform\Model\Merchant;
 
 /**
- * Class SignupResponse
+ * Class SeamlessSignupResponse
  */
-class SignupResponse
+class SeamlessSignupResponse
 {
-    /** @var boolean */
-    public $livemode;
-
     /** @var string */
     public $uid;
 
@@ -26,19 +23,21 @@ class SignupResponse
     public $updated;
 
     /** @var string */
-    public $completed;
+    public $type;
 
     /** @var string */
-    public $merchant_uid;
+    public $coc_nr;
 
     /** @var string */
-    public $return_url;
+    public $name;
 
     /** @var string */
-    public $redirect_url;
+    public $vat_nr;
+
+    /** @var string */
+    public $country;
 
     /** @var string */
     public $notify_url;
     
-
 }

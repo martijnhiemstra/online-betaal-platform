@@ -1,40 +1,30 @@
 <?php
-/*
-* (c) Nimbles b.v. <wessel@nimbles.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
 
 namespace OnlineBetaalPlatform\Manager;
 
+use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use OnlineBetaalPlatform\Model\Merchant;
+use OnlineBetaalPlatform\Model\Merchant\SeamlessSignupResponse;
+use OnlineBetaalPlatform\Model\Merchant\SignupResponse;
 
 /**
  * Class MerchantsManager
  */
 class MerchantsManager
 {
-    /** @var ClientInterface */
-    private $httpClient;
-
     /** @var string */
     private $apiKey;
-
-    /** @var string */
-    private $uri;
 
     /**
      * @param ClientInterface $httpClient
      * @param string          $apiKey
      * @param string          $uri
      */
-    public function __construct(ClientInterface $httpClient, $apiKey, $uri)
+    public function __construct($apiKey)
     {
-        $this->httpClient = $httpClient;
+        $this->httpClient = new Client();
         $this->apiKey     = $apiKey;
-        $this->uri        = $uri;
     }
 
     /**
@@ -45,7 +35,7 @@ class MerchantsManager
      *
      * @throws \Exception
      */
-    public function whitelabelOnboarding($returnUrl, $notifyUrl)
+    public function whitelabelOnboarding($returnUrl, $notifyUrl): SignupResponse
     {
         try {
             $response = $this->httpClient->request('POST', 'https://api-sandbox.onlinebetaalplatform.nl/v1/signups', [
@@ -78,7 +68,7 @@ class MerchantsManager
      *
      * @throws \Exception
      */
-    public function seamlessOnboarding($country, $email, $coc_nr, $notify_url)
+    public function seamlessOnboarding($country, $email, $coc_nr, $notify_url): SeamlessSignupResponse
     {
         try {
             $response = $this->httpClient->request('POST', 'https://api-sandbox.onlinebetaalplatform.nl/v1/merchants', [
@@ -95,9 +85,7 @@ class MerchantsManager
                 throw new \Exception('Invalid response');
             }
 
-            $signupResponse = json_decode($response->getBody()->getContents());
-
-            return $signupResponse;
+            return json_decode($response->getBody()->getContents());
         } catch (\Exception $exception) {
             throw new \Exception('Unable to create merchant');
         }

@@ -8,6 +8,7 @@
 
 namespace OnlineBetaalPlatform\Manager;
 
+use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 
 /**
@@ -15,25 +16,17 @@ use GuzzleHttp\ClientInterface;
  */
 class TransactionsManager
 {
-    /** @var ClientInterface */
-    private $httpClient;
-
     /** @var string */
     private $apiKey;
-
-    /** @var string */
-    private $uri;
 
     /**
      * @param ClientInterface $httpClient
      * @param string          $apiKey
-     * @param string          $uri
      */
-    public function __construct(ClientInterface $httpClient, $apiKey, $uri)
+    public function __construct($apiKey)
     {
-        $this->httpClient = $httpClient;
+        $this->httpClient = new Client();
         $this->apiKey     = $apiKey;
-        $this->uri        = $uri;
     }
 
 }
