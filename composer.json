@@ -1,6 +1,7 @@
 {
   "name": "martijnhiemstra/online-betaal-platform",
   "description": "PHP Package for onlinebetaalplatform",
+  "version": "1.0.0",
   "keywords": [
     "payment",
     "php",

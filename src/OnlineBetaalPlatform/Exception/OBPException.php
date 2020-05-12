@@ -19,12 +19,4 @@ class OBPException extends Exception
         parent::__construct($message, $code, $previous);
     }
 
-    /**
-     * Ensure that when the exception converted into a string we print extra information about the exception
-     */
-    public function __toString()
-    {
-        return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
-    }
-
 }
