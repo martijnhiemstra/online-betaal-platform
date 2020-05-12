@@ -4,6 +4,7 @@ namespace OnlineBetaalPlatform\Manager;
 
 use Exception;
 use GuzzleHttp\Client;
+use JsonMapper;
 use OnlineBetaalPlatform\Exception\MerchantException;
 use OnlineBetaalPlatform\Model\Merchant;
 use OnlineBetaalPlatform\Model\Merchant\SeamlessSignupResponse;
@@ -96,10 +97,8 @@ class MerchantsManager
             }
 
             $data = json_decode($response->getBody()->getContents());
-            $returnClass = new SeamlessSignupResponse();
-            foreach ($data as $key => $value) $returnClass->{$key} = $value;
-
-            return $returnClass;
+            $mapper = new JsonMapper();
+            return $mapper->map($data, new SeamlessSignupResponse());
         } catch (Exception $exception) {
             throw new MerchantException('Unable to perform whitelabel onboarding: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
