@@ -58,7 +58,7 @@ class MerchantsManager
 
             return json_decode($response->getBody()->getContents());
         } catch (Exception $exception) {
-            throw new MerchantException('Unable to perform whitelabel onboarding: ' . $exception->getMessage(), $exception->code, $exception);
+            throw new MerchantException('Unable to perform whitelabel onboarding: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 
@@ -93,7 +93,7 @@ class MerchantsManager
 
             return json_decode($response->getBody()->getContents());
         } catch (Exception $exception) {
-            throw new MerchantException('Unable to perform whitelabel onboarding: ' . $exception->getMessage(), $exception->code, $exception);
+            throw new MerchantException('Unable to perform whitelabel onboarding: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 

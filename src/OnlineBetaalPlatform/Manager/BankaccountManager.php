@@ -58,7 +58,7 @@ class BankaccountManager
 
             return $signupResponse;
         } catch (Exception $exception) {
-            throw new BankAccountException('Unable to ceate bankaccount: ' . $exception->getMessage(), $exception->code, $exception);
+            throw new BankAccountException('Unable to ceate bankaccount: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 
