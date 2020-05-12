@@ -41,7 +41,7 @@ class BankaccountManager
     public function create($merchantUid, $returnUrl, $notifyUrl): CreateBankAccountResponse
     {
         try {
-            $uri = $this->baseApiUrl . '/merchants/' . $merchantUid  . '/bank_accounts';
+            $uri = $this->baseApiUrl . 'merchants/' . $merchantUid  . '/bank_accounts';
 
             $response = $this->httpClient->request('POST', $uri, [
                 'auth' => [$this->apiKey, null], 'form_params' => [
@@ -54,9 +54,11 @@ class BankaccountManager
                 throw new Exception('Invalid response');
             }
 
-            $signupResponse = json_decode($response->getBody()->getContents());
+            $data = json_decode($response->getBody()->getContents());
+            $returnClass = new CreateBankAccountResponse();
+            foreach ($data as $key => $value) $returnClass->{$key} = $value;
 
-            return $signupResponse;
+            return $returnClass;
         } catch (Exception $exception) {
             throw new BankAccountException('Unable to ceate bankaccount: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }

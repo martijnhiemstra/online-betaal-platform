@@ -42,7 +42,7 @@ class MerchantsManager
     public function whitelabelOnboarding($returnUrl, $notifyUrl): WhitelabelSignupResponse
     {
         try {
-            $uri = $this->baseApiUrl . '/signups';
+            $uri = $this->baseApiUrl . 'signups';
 
             $response = $this->httpClient->request('POST', $uri, [
                 'auth' => [$this->apiKey, null], 'form_params' => [
@@ -56,7 +56,11 @@ class MerchantsManager
                 throw new Exception('Invalid response');
             }
 
-            return json_decode($response->getBody()->getContents());
+            $data = json_decode($response->getBody()->getContents());
+            $returnClass = new WhitelabelSignupResponse();
+            foreach ($data as $key => $value) $returnClass->{$key} = $value;
+
+            return $returnClass;
         } catch (Exception $exception) {
             throw new MerchantException('Unable to perform whitelabel onboarding: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
@@ -75,7 +79,7 @@ class MerchantsManager
     public function seamlessOnboarding($country, $email, $coc_nr, $notify_url): SeamlessSignupResponse
     {
         try {
-            $uri = $this->baseApiUrl . '/merchants';
+            $uri = $this->baseApiUrl . 'merchants';
 
             $response = $this->httpClient->request('POST', $uri, [
                 'auth' => [$this->apiKey, null], 'form_params' => [
@@ -91,7 +95,11 @@ class MerchantsManager
                 throw new Exception('Invalid response');
             }
 
-            return json_decode($response->getBody()->getContents());
+            $data = json_decode($response->getBody()->getContents());
+            $returnClass = new SeamlessSignupResponse();
+            foreach ($data as $key => $value) $returnClass->{$key} = $value;
+
+            return $returnClass;
         } catch (Exception $exception) {
             throw new MerchantException('Unable to perform whitelabel onboarding: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
