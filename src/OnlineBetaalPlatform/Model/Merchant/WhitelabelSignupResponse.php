@@ -5,24 +5,21 @@ namespace OnlineBetaalPlatform\Model\Merchant;
 use OnlineBetaalPlatform\Model\AbstractResponse;
 
 /**
- * The response when doing a seamless signup
+ * The response when doing a whitelabel signup
  */
-class SeamlessSignupResponse extends AbstractResponse
+class WhitelabelSignupResponse extends AbstractResponse
 {
     /** @var string */
-    public $type;
+    public $completed;
 
     /** @var string */
-    public $coc_nr;
+    public $merchant_uid;
 
     /** @var string */
-    public $name;
+    public $return_url;
 
     /** @var string */
-    public $vat_nr;
-
-    /** @var string */
-    public $country;
+    public $redirect_url;
 
     /** @var string */
     public $notify_url;

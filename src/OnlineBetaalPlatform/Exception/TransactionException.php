@@ -3,9 +3,9 @@
 namespace OnlineBetaalPlatform\Exception;
 
 /**
- * Class TransactionException
+ * Is thrown when an exception occures calling the transaction api
  */
-class TransactionException extends \Exception
+class TransactionException extends OBPException
 {
 
 }
