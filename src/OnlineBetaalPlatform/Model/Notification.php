@@ -1,5 +1,7 @@
 <?php
 
+namespace OnlineBetaalPlatform\Model;
+
 class Notification
 {
 

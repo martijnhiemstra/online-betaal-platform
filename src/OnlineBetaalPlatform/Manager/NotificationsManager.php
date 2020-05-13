@@ -3,7 +3,7 @@
 namespace OnlineBetaalPlatform\Manager;
 
 use JsonMapper;
-use Notification;
+use OnlineBetaalPlatform\Model\Notification;
 
 /**
  * Contains methodes to process notifications in the OBP system. 
