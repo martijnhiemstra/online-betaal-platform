@@ -11,10 +11,19 @@ use Notification;
 class NotificationsManager
 {
 
+    /** @var JsonMapper */
+    private $mapper;
+
+    /**
+     */
+    public function __construct()
+    {
+        $this->mapper = new JsonMapper();
+    }
+
     public function processNotification($jsonMessage): Notification
     {
         $data = json_decode($jsonMessage);
-        $mapper = new JsonMapper();
-        return $mapper->map($data, new Notification());
+        return $this->mapper->map($data, new Notification());
     }
 }

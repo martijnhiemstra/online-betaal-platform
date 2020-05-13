@@ -21,6 +21,9 @@ class MerchantsManager
     /** @var string */
     private $baseApiUrl;
 
+    /** @var JsonMapper */
+    private $mapper;
+
     /**
      * @param string The api key to use when connecting with OBP
      * @param string This is the base url of the environment. Each method in this class will then append there own unique url to this base url.
@@ -30,6 +33,8 @@ class MerchantsManager
         $this->httpClient = new Client();
         $this->apiKey     = $apiKey;
         $this->baseApiUrl = $baseApiUrl;
+
+        $this->mapper = new JsonMapper();
     }
 
     /**
@@ -58,10 +63,7 @@ class MerchantsManager
             }
 
             $data = json_decode($response->getBody()->getContents());
-            $returnClass = new WhitelabelSignupResponse();
-            foreach ($data as $key => $value) $returnClass->{$key} = $value;
-
-            return $returnClass;
+            return $this->mapper->map($data, new WhitelabelSignupResponse());
         } catch (Exception $exception) {
             throw new MerchantException('Unable to perform whitelabel onboarding: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
@@ -97,8 +99,7 @@ class MerchantsManager
             }
 
             $data = json_decode($response->getBody()->getContents());
-            $mapper = new JsonMapper();
-            return $mapper->map($data, new SeamlessSignupResponse());
+            return $this->mapper->map($data, new SeamlessSignupResponse());
         } catch (Exception $exception) {
             throw new MerchantException('Unable to perform whitelabel onboarding: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }

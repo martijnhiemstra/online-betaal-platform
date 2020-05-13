@@ -20,6 +20,9 @@ class BankaccountManager
     /** @var string */
     private $baseApiUrl;
 
+    /** @var JsonMapper */
+    private $mapper;
+
     /**
      * @param string The api key to use when connecting with OBP
      * @param string This is the base url of the environment. Each method in this class will then append there own unique url to this base url.
@@ -29,6 +32,8 @@ class BankaccountManager
         $this->httpClient = new Client();
         $this->apiKey     = $apiKey;
         $this->baseApiUrl = $baseApiUrl;
+
+        $this->mapper = new JsonMapper();
     }
 
     /**
@@ -57,8 +62,7 @@ class BankaccountManager
             }
 
             $data = json_decode($response->getBody()->getContents());
-            $mapper = new JsonMapper();
-            return $mapper->map($data, new BankAccount());
+            return $this->mapper->map($data, new BankAccount());
         } catch (Exception $exception) {
             throw new BankAccountException('Unable to create bankaccount: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
@@ -87,8 +91,7 @@ class BankaccountManager
             }
 
             $data = json_decode($response->getBody()->getContents());
-            $mapper = new JsonMapper();
-            return $mapper->map($data, new BankAccount());
+            return $this->mapper->map($data, new BankAccount());
         } catch (Exception $exception) {
             throw new BankAccountException('Unable to get bankaccount ' . $bankaccountUid . ': ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
@@ -117,8 +120,7 @@ class BankaccountManager
             }
 
             $data = json_decode($response->getBody()->getContents());
-            $mapper = new JsonMapper();
-            return $mapper->map($data, new BankAccounts());
+            return $this->mapper->map($data, new BankAccounts());
         } catch (Exception $exception) {
             throw new BankAccountException('Unable to get bankaccounts: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
