@@ -7,7 +7,7 @@ use OnlineBetaalPlatform\Model\AbstractResponse;
 class BankAccount extends AbstractResponse
 {
 
-    /** @var string */
+    /** @var string|null */
     public $verified;
 
     /** @var string */
