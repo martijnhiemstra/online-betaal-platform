@@ -9,7 +9,7 @@ class Notification
     /** @var string */
     public $type;
 
-    /** @var \DateTime */
+    /** @var integer */
     public $created;
 
     /** @var string */

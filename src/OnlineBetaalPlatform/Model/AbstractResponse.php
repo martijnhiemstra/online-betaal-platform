@@ -17,10 +17,10 @@ abstract class AbstractResponse
     /** @var string */
     public $status;
 
-    /** @var \DateTime */
+    /** @var integer */
     public $created;
 
-    /** @var \DateTime */
+    /** @var integer */
     public $updated;
 
 }
