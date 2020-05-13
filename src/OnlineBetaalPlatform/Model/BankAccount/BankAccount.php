@@ -13,7 +13,7 @@ class BankAccount extends AbstractResponse
     /** @var string */
     public $verification_url;
 
-    /** @var string */
+    /** @var string|null */
     public $reference;
 
     /** @var string */
