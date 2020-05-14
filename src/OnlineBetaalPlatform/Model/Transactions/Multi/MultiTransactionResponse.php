@@ -9,7 +9,7 @@ use OnlineBetaalPlatform\Model\AbstractResponse;
  */
 class MultiTransactionResponse extends AbstractResponse
 {
-    /** @var string */
+    /** @var string|null */
     public $completed;
 
     /** @var boolean */

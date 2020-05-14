@@ -60,7 +60,7 @@ class TransactionsManager
             $data = json_decode($response->getBody()->getContents());
             return $this->mapper->map($data, new MultiTransactionResponse());
         } catch (RequestException $exception) {
-            throw new TransactionException('Unable to create bankaccount: ' . $exception->getResponse()->getBody()->getContents(), $exception->getCode(), $exception);
+            throw new TransactionException('Unable to create multi transaction: ' . $exception->getResponse()->getBody()->getContents(), $exception->getCode(), $exception);
         } catch (Exception $exception) {
             throw new TransactionException('Unable to create multi transaction: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
