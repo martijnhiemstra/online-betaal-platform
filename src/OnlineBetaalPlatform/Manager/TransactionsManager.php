@@ -50,7 +50,7 @@ class TransactionsManager
             $uri = $this->baseApiUrl . 'multi_transactions';
 
             $response = $this->httpClient->request('POST', $uri, [
-                'auth' => [$this->apiKey, null], 'body' => json_encode($multiTransactionRequest)
+                'auth' => [$this->apiKey, null], 'json' => json_encode($multiTransactionRequest)
             ]);
 
             if ($response->getStatusCode() !== 200) {
