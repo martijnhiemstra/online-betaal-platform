@@ -4,6 +4,7 @@ namespace OnlineBetaalPlatform\Manager;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use JsonMapper;
 use OnlineBetaalPlatform\Exception\BankAccountException;
 use OnlineBetaalPlatform\Model\BankAccount\BankAccount;
@@ -63,6 +64,8 @@ class BankaccountManager
 
             $data = json_decode($response->getBody()->getContents());
             return $this->mapper->map($data, new BankAccount());
+        } catch (RequestException $exception) {
+            throw new BankAccountException('Unable to create bankaccount: ' . $exception->getResponse()->getBody()->getContents(), $exception->getCode(), $exception);
         } catch (Exception $exception) {
             throw new BankAccountException('Unable to create bankaccount: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
@@ -92,6 +95,8 @@ class BankaccountManager
 
             $data = json_decode($response->getBody()->getContents());
             return $this->mapper->map($data, new BankAccount());
+        } catch (RequestException $exception) {
+            throw new BankAccountException('Unable to create bankaccount: ' . $exception->getResponse()->getBody()->getContents(), $exception->getCode(), $exception);
         } catch (Exception $exception) {
             throw new BankAccountException('Unable to get bankaccount ' . $bankaccountUid . ': ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
