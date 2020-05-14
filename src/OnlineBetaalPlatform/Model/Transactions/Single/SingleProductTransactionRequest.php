@@ -34,7 +34,7 @@ class SingleProductTransactionRequest
     /** @var string */
     public $notify_url;
 
-    /** @var array|Metadata[] */
-    public $metadata = array();
+    /** @var array|Object[] */
+    public $metadata = array();    
 
 }

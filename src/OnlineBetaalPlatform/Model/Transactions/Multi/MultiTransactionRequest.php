@@ -8,7 +8,7 @@ namespace OnlineBetaalPlatform\Model\Payment;
 class MultiTransactionRequest
 {
     /** @var boolean */
-    public $checkout;
+    public $checkout = false; // Multitransaction doesn't support checkout
 
     /** @var string */
     public $payment_method;
@@ -24,5 +24,8 @@ class MultiTransactionRequest
 
     /** @var array|MultiTransaction[] */
     public $transactions = array();
+
+    /** @var array|Object[] */
+    public $metadata = array();    
 
 }
