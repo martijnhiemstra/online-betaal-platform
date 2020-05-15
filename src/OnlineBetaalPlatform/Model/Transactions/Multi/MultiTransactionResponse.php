@@ -34,10 +34,10 @@ class MultiTransactionResponse extends AbstractResponse
     /** @var string */
     public $notify_url;
 
-    /** @var array|Object[] */
+    /** @var Object[] */
     public $metadata = array();
 
-    /** @var array|Status[] */
+    /** @var Status[] */
     public $statuses = array();
 
 }
