@@ -4,6 +4,7 @@ namespace OnlineBetaalPlatform\Manager;
 
 use Exception;
 use OnlineBetaalPlatform\Exception\TransactionException;
+use OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionRequest;
 use OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionResponse;
 use OnlineBetaalPlatform\Utils\RequestUtils;
 
@@ -35,7 +36,7 @@ class TransactionsManager
      *
      * @throws TransactionException If anything went wrong
      */
-    public function multiTransaction($multiTransactionRequest): MultiTransactionResponse
+    public function multiTransaction(MultiTransactionRequest $multiTransactionRequest): MultiTransactionResponse
     {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/multi_transactions');
