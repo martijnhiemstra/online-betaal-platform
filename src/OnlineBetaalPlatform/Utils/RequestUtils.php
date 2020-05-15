@@ -41,4 +41,21 @@ final class RequestUtils
         }
     }
 
+    /**
+     * A helpfull toool that creates a complete url from a base part and the resource part.    
+     * 
+     * @param String The base url to call.
+     * @param String The path to the resource
+     * 
+     * @return String The complete correctly formatted url 
+     */
+    public static final function createUrl(String $baseUrl, String $path) {
+        if (StringUtils::endsWith($baseUrl, '/') && StringUtils::startsWith($path, '/')) {
+            return substr($baseUrl, 0, -1) . $path;
+        }
+
+        return $baseUrl . $path;
+    }
+
+    
 }
