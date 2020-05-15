@@ -49,18 +49,16 @@ class TransactionsManager
     /**
      * @param String The id of the multi transaction to look for
      * 
-     * @return 
-     * 
+     * @return MultiTransactionResponse The requested multi transaction
      */
-    public function findMultiTransactionByMultiTransactionId($multi_transaction_uid) {
+    public function findMultiTransactionByMultiTransactionId($multi_transaction_uid): MultiTransactionResponse {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/multi_transactions/' . $multi_transaction_uid);
 
-            return RequestUtils::doCall($uri, 'POST', $this->apiKey, null, new MultiTransactionResponse());
+            return RequestUtils::doCall($uri, 'GET', $this->apiKey, null, new MultiTransactionResponse());
         } catch (Exception $exception) {
             throw new TransactionException('Unable to find multi transaction id: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
-
 
 }
