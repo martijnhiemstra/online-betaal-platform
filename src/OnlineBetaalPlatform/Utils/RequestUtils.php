@@ -5,6 +5,7 @@ namespace OnlineBetaalPlatform\Utils;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use JsonMapper;
 
 final class RequestUtils
 {
@@ -36,7 +37,7 @@ final class RequestUtils
 
             $data = json_decode($response->getBody()->getContents());
 
-            $mapper = new Client();
+            $mapper = new JsonMapper();
             return $mapper->map($data, $objectToMapTo);
         } catch (RequestException $exception) {
             throw new Exception('Unable to get bankaccounts: ' . $exception->getResponse()->getBody()->getContents(), $exception->getCode(), $exception);
