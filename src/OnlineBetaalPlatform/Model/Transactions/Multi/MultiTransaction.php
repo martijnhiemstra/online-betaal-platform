@@ -2,6 +2,8 @@
 
 namespace OnlineBetaalPlatform\Model\Transactions\Multi;
 
+use OnlineBetaalPlatform\Model\Product;
+
 /**
  * Class MultiTransaction
  */
