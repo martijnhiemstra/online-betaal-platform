@@ -3,12 +3,12 @@
 namespace OnlineBetaalPlatform\Manager;
 
 use Exception;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
-use JsonMapper;
 use OnlineBetaalPlatform\Exception\BankAccountException;
-use OnlineBetaalPlatform\Model\BankAccount\BankAccount;
-use OnlineBetaalPlatform\Model\BankAccount\BankAccounts;
+use OnlineBetaalPlatform\Model\BankAccount\BankAccountResponse;
+use OnlineBetaalPlatform\Model\BankAccount\BankAccountsResponse;
+use OnlineBetaalPlatform\Model\BankAccount\CreateBankAccountRequest;
+use OnlineBetaalPlatform\Model\Merchant\WhitelabelSignupRequest;
+use OnlineBetaalPlatform\Utils\RequestUtils;
 
 /**
  * Contains methods that allow us to create, modify and get bankaccounts in the OBP system
@@ -21,51 +21,30 @@ class BankaccountManager
     /** @var string */
     private $baseApiUrl;
 
-    /** @var JsonMapper */
-    private $mapper;
-
     /**
      * @param string The api key to use when connecting with OBP
      * @param string This is the base url of the environment. Each method in this class will then append there own unique url to this base url.
      */
     public function __construct($apiKey, $baseApiUrl)
     {
-        $this->httpClient = new Client();
         $this->apiKey     = $apiKey;
         $this->baseApiUrl = $baseApiUrl;
-
-        $this->mapper = new JsonMapper();
     }
 
     /**
      * @param string The id of the merchant we want to create the bankaccount for
-     * @param string The url visitors will return to after the bankaccount is verified
-     * @param string The url that will be used to notify us when something changes
+     * @param WhitelabelSignupRequest The request to send when creating a merchant using the whitelabel signup 
      * 
-     * @return The object created using the reponse received from the OBP system.
+     * @return BankAccountResponse The object created using the reponse received from the OPP system.
      *
      * @throws BankAccountException
      */
-    public function create($merchantUid, $returnUrl, $notifyUrl): BankAccount
+    public function create(String $merchantUid, CreateBankAccountRequest $createBankAccountRequest): BankAccountResponse
     {
         try {
             $uri = $this->baseApiUrl . 'merchants/' . $merchantUid  . '/bank_accounts';
 
-            $response = $this->httpClient->request('POST', $uri, [
-                'auth' => [$this->apiKey, null], 'form_params' => [
-                    'return_url'    => $returnUrl,
-                    'notify_url'    => $notifyUrl,
-                ],
-            ]);
-
-            if ($response->getStatusCode() !== 200) {
-                throw new Exception('Invalid response');
-            }
-
-            $data = json_decode($response->getBody()->getContents());
-            return $this->mapper->map($data, new BankAccount());
-        } catch (RequestException $exception) {
-            throw new BankAccountException('Unable to create bankaccount: ' . $exception->getResponse()->getBody()->getContents(), $exception->getCode(), $exception);
+            return RequestUtils::doCall($uri, 'POST', $this->apiKey, $createBankAccountRequest, new BankAccountResponse());
         } catch (Exception $exception) {
             throw new BankAccountException('Unable to create bankaccount: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
@@ -73,61 +52,38 @@ class BankaccountManager
 
     /**
      * @param string The id of the merchant we want to create the bankaccount for
-     * @param string The url visitors will return to after the bankaccount is verified
-     * @param string The url that will be used to notify us when something changes
+     * @param string The id of the bankaccount we want to find
      * 
-     * @return The object created using the reponse received from the OBP system.
+     * @return BankAccountResponse The bankaccount object
      *
-     * @throws BankAccountException
+     * @throws BankAccountException If anything went wrong
      */
-    public function findById($merchantUid, $bankaccountUid): BankAccount
+    public function findById($merchantUid, $bankaccountUid): BankAccountResponse
     {
         try {
             $uri = $this->baseApiUrl . 'merchants/' . $merchantUid  . '/bank_accounts/' . $bankaccountUid;
 
-            $response = $this->httpClient->request('GET', $uri, [
-                'auth' => [$this->apiKey, null]
-            ]);
-
-            if ($response->getStatusCode() !== 200) {
-                throw new Exception('Invalid response');
-            }
-
-            $data = json_decode($response->getBody()->getContents());
-            return $this->mapper->map($data, new BankAccount());
-        } catch (RequestException $exception) {
-            throw new BankAccountException('Unable to create bankaccount: ' . $exception->getResponse()->getBody()->getContents(), $exception->getCode(), $exception);
+            return RequestUtils::doCall($uri, 'GET', $this->apiKey, null, new BankAccountResponse());
         } catch (Exception $exception) {
-            throw new BankAccountException('Unable to get bankaccount ' . $bankaccountUid . ': ' . $exception->getMessage(), $exception->getCode(), $exception);
+            throw new BankAccountException('Unable to find bankaccount: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 
     /**
      * @param string The id of the merchant we want to create the bankaccount for
-     * @param string The url visitors will return to after the bankaccount is verified
-     * @param string The url that will be used to notify us when something changes
      * 
-     * @return The object created using the reponse received from the OBP system.
+     * @return BankAccountsResponse An object containing a list of bankaccounts
      *
-     * @throws BankAccountException
+     * @throws BankAccountException If anything wene
      */
-    public function findAll($merchantUid): BankAccounts
+    public function findAll($merchantUid): BankAccountsResponse
     {
         try {
             $uri = $this->baseApiUrl . 'merchants/' . $merchantUid  . '/bank_accounts';
 
-            $response = $this->httpClient->request('GET', $uri, [
-                'auth' => [$this->apiKey, null]
-            ]);
-
-            if ($response->getStatusCode() !== 200) {
-                throw new Exception('Invalid response');
-            }
-
-            $data = json_decode($response->getBody()->getContents());
-            return $this->mapper->map($data, new BankAccounts());
+            return RequestUtils::doCall($uri, 'GET', $this->apiKey, null, new BankAccountsResponse());
         } catch (Exception $exception) {
-            throw new BankAccountException('Unable to get bankaccounts: ' . $exception->getMessage(), $exception->getCode(), $exception);
+            throw new BankAccountException('Unable to find bankaccounts: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 

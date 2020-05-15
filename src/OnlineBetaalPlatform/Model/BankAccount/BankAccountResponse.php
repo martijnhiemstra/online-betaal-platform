@@ -4,7 +4,7 @@ namespace OnlineBetaalPlatform\Model\BankAccount;
 
 use OnlineBetaalPlatform\Model\AbstractResponse;
 
-class BankAccount extends AbstractResponse
+class BankAccountResponse extends AbstractResponse
 {
 
     /** @var string|null */

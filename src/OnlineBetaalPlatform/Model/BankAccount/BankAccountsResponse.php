@@ -2,7 +2,7 @@
 
 namespace OnlineBetaalPlatform\Model\BankAccount;
 
-class BankAccounts 
+class BankAccountsResponse 
 {
 
     /** @var string */
