@@ -42,7 +42,7 @@ class MerchantsManager
     public function whitelabelOnboarding(WhitelabelSignupRequest $whitelabelSignupRequest): WhitelabelSignupResponse
     {
         try {
-            $uri = $this->baseApiUrl . 'signups';
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/signups');
 
             return RequestUtils::doCall($uri, 'POST', $this->apiKey, $whitelabelSignupRequest, new WhitelabelSignupResponse());
         } catch (Exception $exception) {
@@ -63,7 +63,7 @@ class MerchantsManager
     public function seamlessOnboarding(SeamlessSignupRequest $seamlessSignupRequest): SeamlessSignupResponse
     {
         try {
-            $uri = $this->baseApiUrl . 'merchants';
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/merchants');
 
             return RequestUtils::doCall($uri, 'POST', $this->apiKey, $seamlessSignupRequest, new SeamlessSignupResponse());
         } catch (Exception $exception) {

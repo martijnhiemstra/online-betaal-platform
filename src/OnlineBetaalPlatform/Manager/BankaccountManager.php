@@ -61,7 +61,7 @@ class BankaccountManager
     public function findById($merchantUid, $bankaccountUid): BankAccountResponse
     {
         try {
-            $uri = $this->baseApiUrl . 'merchants/' . $merchantUid  . '/bank_accounts/' . $bankaccountUid;
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/merchants/' . $merchantUid  . '/bank_accounts/' . $bankaccountUid);
 
             return RequestUtils::doCall($uri, 'GET', $this->apiKey, null, new BankAccountResponse());
         } catch (Exception $exception) {
@@ -79,7 +79,7 @@ class BankaccountManager
     public function findAll($merchantUid): BankAccountsResponse
     {
         try {
-            $uri = $this->baseApiUrl . 'merchants/' . $merchantUid  . '/bank_accounts';
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/merchants/' . $merchantUid  . '/bank_accounts');
 
             return RequestUtils::doCall($uri, 'GET', $this->apiKey, null, new BankAccountsResponse());
         } catch (Exception $exception) {

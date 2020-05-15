@@ -4,8 +4,7 @@ namespace OnlineBetaalPlatform\Manager;
 
 use Exception;
 use OnlineBetaalPlatform\Exception\TransactionException;
-use OnlineBetaalPlatform\Model\Payment\MultiTransactionRequest;
-use OnlineBetaalPlatform\Model\Payment\MultiTransactionResponse;
+use OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionResponse;
 use OnlineBetaalPlatform\Utils\RequestUtils;
 
 /**
@@ -39,11 +38,27 @@ class TransactionsManager
     public function multiTransaction($multiTransactionRequest): MultiTransactionResponse
     {
         try {
-            $uri = $this->baseApiUrl . 'multi_transactions';
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/multi_transactions');
 
             return RequestUtils::doCall($uri, 'POST', $this->apiKey, $multiTransactionRequest, new MultiTransactionResponse());
         } catch (Exception $exception) {
             throw new TransactionException('Unable to perform seasmless onboarding: ' . $exception->getMessage(), $exception->getCode(), $exception);
+        }
+    }
+
+    /**
+     * @param String The id of the multi transaction to look for
+     * 
+     * @return 
+     * 
+     */
+    public function findMultiTransactionByMultiTransactionId($multi_transaction_uid) {
+        try {
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/multi_transactions/' . $multi_transaction_uid);
+
+            return RequestUtils::doCall($uri, 'POST', $this->apiKey, null, new MultiTransactionResponse());
+        } catch (Exception $exception) {
+            throw new TransactionException('Unable to find multi transaction id: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 

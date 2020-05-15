@@ -1,6 +1,6 @@
 <?php
 
-namespace OnlineBetaalPlatform\Model\Payment;
+namespace OnlineBetaalPlatform\Model\Transactions\Multi;
 
 /**
  * Class MultiTransactionRequest

@@ -1,6 +1,8 @@
 <?php
 
-namespace OnlineBetaalPlatform\Model\Payment;
+namespace OnlineBetaalPlatform\Model\Transactions\Single;
+
+use OnlineBetaalPlatform\Model\Product;
 
 /**
  * Class SingleProductTransactionRequest

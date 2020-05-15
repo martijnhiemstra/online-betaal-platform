@@ -1,8 +1,9 @@
 <?php
 
-namespace OnlineBetaalPlatform\Model\Payment;
+namespace OnlineBetaalPlatform\Model\Transactions\Multi;
 
 use OnlineBetaalPlatform\Model\AbstractResponse;
+use OnlineBetaalPlatform\Model\Status\Status;
 
 /**
  * The response received when sending a multi transaction
@@ -32,4 +33,11 @@ class MultiTransactionResponse extends AbstractResponse
 
     /** @var string */
     public $notify_url;
+
+    /** @var array|Object[] */
+    public $metadata = array();
+
+    /** @var array|Status[] */
+    public $statuses = array();
+
 }
