@@ -23,7 +23,9 @@ final class RequestUtils
     public static function doCall(String $uri, String $uriMethod, $apiKey, $requestObject, $objectToMapTo)
     {
         try {
-            $response = $this->httpClient->request($uriMethod, $uri, [
+            $httpClient = new Client();
+
+            $response = $httpClient->request($uriMethod, $uri, [
                 'auth' => [$apiKey, null],
                 'json' => $requestObject
             ]);
