@@ -18,14 +18,16 @@ class MultiTransactionRequest
 
     /** @var string */
     public $return_url;
-    
+
     /** @var string */
     public $notify_url;
+
+    /** @var integer */
+    public $partner_fee;
 
     /** @var array|MultiTransaction[] */
     public $transactions = array();
 
     /** @var array|Object[] */
-    public $metadata = array();    
-
+    public $metadata = array();
 }
