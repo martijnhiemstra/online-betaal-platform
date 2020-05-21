@@ -4,10 +4,7 @@ namespace OnlineBetaalPlatform\Model\Transactions\Multi;
 
 use OnlineBetaalPlatform\Model\Product;
 
-/**
- * Class MultiTransaction
- */
-class MultiTransaction
+class MultiTransactionRequestTransaction
 {
     /** @var string */
     public $merchant_uid;

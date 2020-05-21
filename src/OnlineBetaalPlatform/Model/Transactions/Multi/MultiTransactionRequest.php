@@ -25,7 +25,7 @@ class MultiTransactionRequest
     /** @var integer */
     public $partner_fee;
 
-    /** @var array|MultiTransaction[] */
+    /** @var array|MultiTransactionRequestTransaction[] */
     public $transactions = array();
 
     /** @var array|Object[] */

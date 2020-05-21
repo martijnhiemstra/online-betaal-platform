@@ -4,25 +4,25 @@ namespace OnlineBetaalPlatform\Model\Transactions\Multi;
 
 use OnlineBetaalPlatform\Model\AbstractResponse;
 
-/**
- * The response received when sending a multi transaction
- */
-class MultiTransactionResponse extends AbstractResponse
+class MultiTransactionResponseTransaction extends AbstractResponse
 {
-    /** @var string|null */
-    public $completed;
-
-    /** @var boolean */
-    public $checkout;
+    /** @var string */
+    public $merchant_uid;
 
     /** @var string */
-    public $payment_method;
-
-    /** @var string */
-    public $payment_flow;
+    public $merchant_profile_uid;
 
     /** @var integer */
-    public $amount;
+    public $total_price;
+
+    /** @var integer */
+    public $shipping_cost;
+
+    /** @var integer */
+    public $partner_fee;
+
+    /** @var integer */
+    public $payment_details;
 
     /** @var string */
     public $return_url;
@@ -39,8 +39,5 @@ class MultiTransactionResponse extends AbstractResponse
     /** @var array */
     public $statuses = array();
     
-    /** @var array|MultiTransactionResponseTransaction[] */
-    public $transactions = array();
-
 
 }
