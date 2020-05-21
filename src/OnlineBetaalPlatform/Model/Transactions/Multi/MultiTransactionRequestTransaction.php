@@ -21,4 +21,7 @@ class MultiTransactionRequestTransaction
     /** @var array|Product[] */
     public $products = array();
 
+    /** @var array|Object[] */
+    public $metadata = array();
+
 }
