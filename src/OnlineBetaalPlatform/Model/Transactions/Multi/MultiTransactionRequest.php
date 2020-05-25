@@ -25,9 +25,11 @@ class MultiTransactionRequest
     /** @var integer */
     public $partner_fee;
 
-    /** @var OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionRequestTransaction[] */
+    /** @var array */
+    // OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionRequestTransaction[]
     public $transactions = array();
 
-    /** @var Object[] */
+    /** @var array */
+    // Object[]
     public $metadata = array();
 }

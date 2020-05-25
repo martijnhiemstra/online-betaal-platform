@@ -37,11 +37,12 @@ class MultiTransactionResponse extends AbstractResponse
     /** @var array */
     public $metadata = array();
 
-    /** @var OnlineBetaalPlatform\Model\Status\Status[] */
+    /** @var array */
+    // OnlineBetaalPlatform\Model\Status\Status[]
     public $statuses = array();
     
-    /** @var OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionResponseTransaction[] */
+    /** @var arrary */
+    // OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionResponseTransaction[]
     public $transactions = array();
-
 
 }
