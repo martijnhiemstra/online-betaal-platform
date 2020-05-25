@@ -41,7 +41,7 @@ class MultiTransactionResponse extends AbstractResponse
     // OnlineBetaalPlatform\Model\Status\Status[]
     public $statuses = array();
     
-    /** @var arrary */
+    /** @var array */
     // OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionResponseTransaction[]
     public $transactions = array();
 
