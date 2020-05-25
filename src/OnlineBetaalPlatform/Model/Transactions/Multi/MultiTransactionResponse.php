@@ -3,6 +3,7 @@
 namespace OnlineBetaalPlatform\Model\Transactions\Multi;
 
 use OnlineBetaalPlatform\Model\AbstractResponse;
+use OnlineBetaalPlatform\Model\Status\Status;
 
 /**
  * The response received when sending a multi transaction
@@ -36,10 +37,10 @@ class MultiTransactionResponse extends AbstractResponse
     /** @var array */
     public $metadata = array();
 
-    /** @var array */
+    /** @var Status[] */
     public $statuses = array();
     
-    /** @var array|MultiTransactionResponseTransaction[] */
+    /** @var MultiTransactionResponseTransaction[] */
     public $transactions = array();
 
 
