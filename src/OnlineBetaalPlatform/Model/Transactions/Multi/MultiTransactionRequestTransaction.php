@@ -18,10 +18,10 @@ class MultiTransactionRequestTransaction
     /** @var integer */
     public $partner_fee = 0;
 
-    /** @var array|Product[] */
+    /** @var OnlineBetaalPlatform\Model\Product\Product[] */
     public $products = array();
 
-    /** @var array|Object[] */
+    /** @var Object[] */
     public $metadata = array();
 
 }
