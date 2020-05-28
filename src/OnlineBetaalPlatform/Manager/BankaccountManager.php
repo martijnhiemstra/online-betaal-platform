@@ -39,7 +39,7 @@ class BankaccountManager
      *
      * @throws BankAccountException
      */
-    public function create(String $merchantUid, CreateBankAccountRequest $createBankAccountRequest): BankAccountResponse
+    public function create(String $merchantUid, CreateBankAccountRequest $createBankAccountRequest)
     {
         try {
             $uri = $this->baseApiUrl . 'merchants/' . $merchantUid  . '/bank_accounts';
@@ -58,7 +58,7 @@ class BankaccountManager
      *
      * @throws BankAccountException If anything went wrong
      */
-    public function findById($merchantUid, $bankaccountUid): BankAccountResponse
+    public function findById($merchantUid, $bankaccountUid)
     {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/merchants/' . $merchantUid  . '/bank_accounts/' . $bankaccountUid);
@@ -76,7 +76,7 @@ class BankaccountManager
      *
      * @throws BankAccountException If anything wene
      */
-    public function findAll($merchantUid): BankAccountsResponse
+    public function findAll($merchantUid)
     {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/merchants/' . $merchantUid  . '/bank_accounts');

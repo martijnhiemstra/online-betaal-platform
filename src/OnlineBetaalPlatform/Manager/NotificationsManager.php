@@ -23,7 +23,7 @@ class NotificationsManager
         $this->mapper = new JsonMapper();
     }
 
-    public function processNotification($jsonMessage): Notification
+    public function processNotification($jsonMessage)
     {
         try {
             $data = json_decode($jsonMessage);
