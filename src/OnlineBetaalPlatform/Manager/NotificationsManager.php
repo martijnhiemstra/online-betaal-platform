@@ -26,8 +26,8 @@ class NotificationsManager
     public function processNotification($jsonMessage)
     {
         try {
-            $data = json_decode($jsonMessage);
-            return $this->mapper->map($data, new Notification());
+            return json_decode($jsonMessage);
+            // return $this->mapper->map($data, new Notification());
         } catch (Exception $exception) {
             throw new NotificationException('Unable to process notification: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
