@@ -37,7 +37,7 @@ class TransactionsManager
      *
      * @throws TransactionException If anything went wrong
      */
-    public function createMultiTransaction(MultiTransactionRequest $multiTransactionRequest): MultiTransactionResponse
+    public function createMultiTransaction(MultiTransactionRequest $multiTransactionRequest)
     {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/multi_transactions');
@@ -53,7 +53,7 @@ class TransactionsManager
      * 
      * @return MultiTransactionResponse The requested multi transaction
      */
-    public function findMultiTransactionByMultiTransactionId($multi_transaction_uid): MultiTransactionResponse
+    public function findMultiTransactionByMultiTransactionId($multi_transaction_uid)
     {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/multi_transactions/' . $multi_transaction_uid);
@@ -69,7 +69,7 @@ class TransactionsManager
      * 
      * @return TransactionResponse The requested transaction
      */
-    public function findTransactionByTransactionId($transaction_uid): SingleTransaction
+    public function findTransactionByTransactionId($transaction_uid)
     {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/transactions/' . $transaction_uid);
@@ -86,7 +86,7 @@ class TransactionsManager
      * 
      * @return MultiTransactionResponse The requested multi transaction
      */
-    public function expireTransaction($transaction_uid, $expire): MultiTransactionResponse
+    public function expireTransaction($transaction_uid, $expire)
     {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/transactions/' . $transaction_uid);
