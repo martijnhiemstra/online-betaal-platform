@@ -35,7 +35,7 @@ final class RequestUtils
                 throw new Exception('Received an unexpected request status: ' . $response->getStatusCode());
             }
 
-            $data = json_decode($response->getBody()->getContents());
+            $data = json_decode($response->getBody()->getContents(), true);
 
             // $mapper = new JsonMapper();
             // return $mapper->map($data, $objectToMapTo);
