@@ -36,7 +36,7 @@ class TransactionsManager
      *
      * @throws TransactionException If anything went wrong
      */
-    public function multiTransaction(MultiTransactionRequest $multiTransactionRequest): MultiTransactionResponse
+    public function createMultiTransaction(MultiTransactionRequest $multiTransactionRequest): MultiTransactionResponse
     {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/multi_transactions');
@@ -52,7 +52,8 @@ class TransactionsManager
      * 
      * @return MultiTransactionResponse The requested multi transaction
      */
-    public function findMultiTransactionByMultiTransactionId($multi_transaction_uid): MultiTransactionResponse {
+    public function findMultiTransactionByMultiTransactionId($multi_transaction_uid): MultiTransactionResponse
+    {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/multi_transactions/' . $multi_transaction_uid);
 
@@ -62,4 +63,37 @@ class TransactionsManager
         }
     }
 
+    /**
+     * @param String The id of the transaction to look for
+     * 
+     * @return TransactionResponse The requested transaction
+     */
+    public function findTransactionByTransactionId($transaction_uid): SingleTransaction
+    {
+        try {
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/transactions/' . $transaction_uid);
+
+            return RequestUtils::doCall($uri, 'GET', $this->apiKey, null, new MultiTransactionResponse());
+        } catch (Exception $exception) {
+            throw new TransactionException('Unable to find multi transaction id: ' . $exception->getMessage(), $exception->getCode(), $exception);
+        }
+    }
+
+    /**
+     * @param String The id of the multi transaction to look for
+     * @param String The time the transaction should expire
+     * 
+     * @return MultiTransactionResponse The requested multi transaction
+     */
+    public function expireTransaction($transaction_uid, $expire): MultiTransactionResponse
+    {
+        try {
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/transactions/' . $transaction_uid);
+
+            $data = json_decode('{ "escrow_date" => "' . $expire . '" }');
+            return RequestUtils::doCall($uri, 'POST', $this->apiKey, $data, null);
+        } catch (Exception $exception) {
+            throw new TransactionException('Unable to find multi transaction id: ' . $exception->getMessage(), $exception->getCode(), $exception);
+        }
+    }
 }
