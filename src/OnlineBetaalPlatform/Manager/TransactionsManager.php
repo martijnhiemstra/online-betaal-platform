@@ -6,6 +6,7 @@ use Exception;
 use OnlineBetaalPlatform\Exception\TransactionException;
 use OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionRequest;
 use OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionResponse;
+use OnlineBetaalPlatform\Model\Transactions\Single\SingleTransaction;
 use OnlineBetaalPlatform\Utils\RequestUtils;
 
 /**
@@ -59,7 +60,7 @@ class TransactionsManager
 
             return RequestUtils::doCall($uri, 'GET', $this->apiKey, null, new MultiTransactionResponse());
         } catch (Exception $exception) {
-            throw new TransactionException('Unable to find multi transaction id: ' . $exception->getMessage(), $exception->getCode(), $exception);
+            throw new TransactionException('Unable to find multi transaction with id [' . $multi_transaction_uid . ']. Message:  ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 
@@ -73,9 +74,9 @@ class TransactionsManager
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/transactions/' . $transaction_uid);
 
-            return RequestUtils::doCall($uri, 'GET', $this->apiKey, null, new MultiTransactionResponse());
+            return RequestUtils::doCall($uri, 'GET', $this->apiKey, null, new SingleTransaction());
         } catch (Exception $exception) {
-            throw new TransactionException('Unable to find multi transaction id: ' . $exception->getMessage(), $exception->getCode(), $exception);
+            throw new TransactionException('Unable to find transaction with id [' . $transaction_uid . ']. Message: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 
@@ -93,7 +94,7 @@ class TransactionsManager
             $data = json_decode('{ "escrow_date" => "' . $expire . '" }');
             return RequestUtils::doCall($uri, 'POST', $this->apiKey, $data, null);
         } catch (Exception $exception) {
-            throw new TransactionException('Unable to find multi transaction id: ' . $exception->getMessage(), $exception->getCode(), $exception);
+            throw new TransactionException('Could not expire transaction with id [' . $transaction_uid . ']. Message: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 }
