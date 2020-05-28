@@ -37,8 +37,10 @@ final class RequestUtils
 
             $data = json_decode($response->getBody()->getContents());
 
-            $mapper = new JsonMapper();
-            return $mapper->map($data, $objectToMapTo);
+            // $mapper = new JsonMapper();
+            // return $mapper->map($data, $objectToMapTo);
+
+            return $data;
         } catch (RequestException $exception) {
             throw new Exception('Unable to get bankaccounts: ' . $exception->getResponse()->getBody()->getContents(), $exception->getCode(), $exception);
         }
