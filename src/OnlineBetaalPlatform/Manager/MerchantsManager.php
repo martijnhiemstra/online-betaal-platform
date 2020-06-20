@@ -81,7 +81,7 @@ class MerchantsManager
      */
     public function getMerchant(String $merchantUid) {
         try {
-            $uri = RequestUtils::createUrl($this->baseApiUrl, '/merchants/' + $merchantUid);
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/merchants/' . $merchantUid);
 
             return RequestUtils::doCall($uri, 'GET', $this->apiKey, '', new SeamlessSignupResponse());
         } catch (Exception $exception) {
