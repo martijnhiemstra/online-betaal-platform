@@ -79,7 +79,7 @@ class MerchantsManager
      * 
      * @throws \MerchantException When any kind of error occured
      */
-    public function getMerchant(Integer $merchantUid) {
+    public function getMerchant(String $merchantUid) {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/merchants/' + $merchantUid);
 
