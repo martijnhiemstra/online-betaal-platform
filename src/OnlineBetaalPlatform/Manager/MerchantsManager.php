@@ -10,6 +10,7 @@ use OnlineBetaalPlatform\Model\Merchant\SeamlessSignupResponse;
 use OnlineBetaalPlatform\Model\Merchant\WhitelabelSignupRequest;
 use OnlineBetaalPlatform\Model\Merchant\WhitelabelSignupResponse;
 use OnlineBetaalPlatform\Utils\RequestUtils;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * Contains methodes to create. modify and get merchants in the OBP system.
@@ -68,6 +69,23 @@ class MerchantsManager
             return RequestUtils::doCall($uri, 'POST', $this->apiKey, $seamlessSignupRequest, new SeamlessSignupResponse());
         } catch (Exception $exception) {
             throw new MerchantException('Unable to perform seasmless onboarding: ' . $exception->getMessage(), $exception->getCode(), $exception);
+        }
+    }
+
+    /**
+     * @param The merchant uid
+     * 
+     * @return The found merchant
+     * 
+     * @throws \MerchantException When any kind of error occured
+     */
+    public function getMerchant(Integer $merchantUid) {
+        try {
+            $uri = RequestUtils::createUrl($this->baseApiUrl, '/merchants/' + $merchantUid);
+
+            return RequestUtils::doCall($uri, 'GET', $this->apiKey, '', new SeamlessSignupResponse());
+        } catch (Exception $exception) {
+            throw new MerchantException('Unable to get merchant information: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
     }
 
