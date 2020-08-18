@@ -1,0 +1,317 @@
+[33mcommit 8f2fdd16210ed44d704a08ed94606c6226222e27[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Sat Jun 20 12:35:03 2020 +0200
+
+    Next version
+
+[33mcommit d2bf132d56d6f1ccf5b4b47fddd83300f5a6e04a[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Sat Jun 20 12:31:21 2020 +0200
+
+    Next version
+
+[33mcommit 8ff9f716d4c47166125871ba4fb16cace73d6613[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Sat Jun 20 12:22:16 2020 +0200
+
+    Next version
+
+[33mcommit 087ccaf745d19bf03a7a1e85af7577e0c6804240[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 28 16:29:51 2020 +0200
+
+    Removed json mapper since it caused issues
+
+[33mcommit 0ebdeaf939a53e805cb8c363e25faaeecd4b9e64[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 28 16:27:47 2020 +0200
+
+    Removed json mapper since it caused issues
+
+[33mcommit bcc39163039cfca53c45bdcf46a79eda6f7a50fe[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 28 16:21:26 2020 +0200
+
+    Removed json mapper since it caused issues
+
+[33mcommit 679b5e44c33e1d34b116928d37ff6ce461e09d6b[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 28 15:22:15 2020 +0200
+
+    Removed json mapper since it caused issues
+
+[33mcommit 46a81e511b43a9b69aa40ad41ddaba06636ead92[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 28 15:04:55 2020 +0200
+
+    Removed json mapper since it caused issues
+
+[33mcommit 99750ef76d4473dc1b86753cc2cb82853cf74961[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 28 15:00:34 2020 +0200
+
+    Removed json mapper since it caused issues
+
+[33mcommit 46915606ab947b60e0bf65f3ac3618e20c0c6355[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 28 07:59:11 2020 +0200
+
+    Next version
+
+[33mcommit 1d112a413f4c01f118cd994b118ba912b643cb30[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 28 07:47:23 2020 +0200
+
+    Next version
+
+[33mcommit dcf34e2d9ec40407eb5deea280ca2d6777b03c1e[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Mon May 25 14:46:09 2020 +0200
+
+    Testing new phpdoc for arrays
+
+[33mcommit 526eb1c1f310e3eabe2a85a75e2d9f0cc6bd2c88[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Mon May 25 14:43:21 2020 +0200
+
+    Testing new phpdoc for arrays
+
+[33mcommit 15eedd9e1440c327b559be4d4edece01b485e654[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Mon May 25 14:38:06 2020 +0200
+
+    Testing new phpdoc for arrays
+
+[33mcommit 51117698ff196cddb2874f14473eca2b9c5e6641[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Mon May 25 14:29:02 2020 +0200
+
+    Testing new phpdoc for arrays
+
+[33mcommit e42d7f9209b2f7c29ec42cd17bb9b96c8a6c0ddb[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 21 13:57:46 2020 +0200
+
+    Next version
+
+[33mcommit 391e26461c66c67ed37b5c4ffddb72d3e30642fa[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 21 13:32:21 2020 +0200
+
+    Next version
+
+[33mcommit 596a48772de91986693b92f4a98e298bcd9bd04a[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Mon May 18 20:01:39 2020 +0200
+
+    Added partnet fee
+
+[33mcommit c2d549305e05e17e25c2e9918aa474299a609fe4[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 16:42:58 2020 +0200
+
+    Next version
+
+[33mcommit 6b68ba859921c820fa0d3e863ddb8ffc7951994f[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 16:38:46 2020 +0200
+
+    Next version
+
+[33mcommit 1303da5347a14058ca5b3f63ca9254d0717abd76[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 16:30:44 2020 +0200
+
+    Next version
+
+[33mcommit 4f8bfca098146035480c8f1154cf3d4cd62d9895[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 16:23:11 2020 +0200
+
+    Next version
+
+[33mcommit a51371fac2ce1353c048c21897b9cd5e0809120c[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 14:04:45 2020 +0200
+
+    Next version
+
+[33mcommit ce33b4834bc208ac87b1dd6f9ea8fc590f13e9c2[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 13:36:02 2020 +0200
+
+    Next version
+
+[33mcommit e5a2e04e1d7762afc1566445b932daece7170cf0[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 13:15:44 2020 +0200
+
+    Next version
+
+[33mcommit 70c383b2516cae45047155df7d5332f2915a734f[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 11:59:30 2020 +0200
+
+    Fixed error
+
+[33mcommit 3eaca7a8c9e87c259cf6886bf4d09b36003965db[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 11:55:49 2020 +0200
+
+    Fixed error
+
+[33mcommit d92bfc79a1f12f34b1bc912cf87a2f248806f5c2[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 11:53:00 2020 +0200
+
+    Optimized code
+
+[33mcommit e139048d10713bfaca18990a694cef36975c2894[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Fri May 15 11:25:29 2020 +0200
+
+    Optimized code
+
+[33mcommit 6fbc739a4d10af1052e5838392d41da4f7626930[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 14 14:22:43 2020 +0200
+
+    Fixed issue with multi transaction response
+
+[33mcommit 8d63e1f4439fb97a503334681e522e80d0a47be9[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 14 13:49:51 2020 +0200
+
+    Fixed error when sending json mesaage to obp
+
+[33mcommit 32cab42f83e0aa2a17bcef26a14513b7c73782b1[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 14 10:40:34 2020 +0200
+
+    Improved error messages when request exception occures
+
+[33mcommit df5f3e5b7b17fc1b09e119a30d0e5bc6053256c9[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 14 10:28:33 2020 +0200
+
+    Improved error messages when request exception occures
+
+[33mcommit 9458b0559a499486e9e64fed1058e54c9aacfc2a[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 14 10:07:59 2020 +0200
+
+    Added multi transaction in the transaction manager
+
+[33mcommit 8ff451cdd639a0e26460053e741e054cc4567172[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Thu May 14 09:42:29 2020 +0200
+
+    Replaced metadata with object array
+
+[33mcommit b5e8754ca4e7bfcb92e69892c4262d4bbea3253e[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Wed May 13 15:41:24 2020 +0200
+
+    Added NotificationException to catch exceptions
+
+[33mcommit 495febc1722b4a334389ac56ab4bf2e2fe536506[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Wed May 13 15:37:42 2020 +0200
+
+    Fixed namespace of notification model
+
+[33mcommit 3c514392b8e8739c15e11d4dc29f4c7e3fe33a67[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Wed May 13 11:30:57 2020 +0200
+
+    Added null flag to reference in bankaccount
+
+[33mcommit 8dd4f931be2c8cf26d81732c55c5019aff477b1f[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Wed May 13 11:27:32 2020 +0200
+
+    ADded null flag to verified in bankaccount
+
+[33mcommit 59f6e68016cc92aaf377b18bf8960a1570b644eb[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Wed May 13 11:18:46 2020 +0200
+
+    Removed datetime as field type and used integer instead
+
+[33mcommit 5e8cc514f991e2fbf4d8cb66c8eb0bba8ed4cad8[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Wed May 13 10:22:45 2020 +0200
+
+    Added jsonmapper to managers as class variable for better performance.
+
+[33mcommit 139916124b3134cdafd38f4aa221058a733d2a66[m
+Author: Martijn <martijn@greenhighway.nl>
+Date:   Wed May 13 10:15:31 2020 +0200
+
+    Added notifications processor
+
+[33mcommit 778ea6d541227fcfdbafa96bcf2f7a5d56ea4d77[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Tue May 12 18:38:15 2020 +0200
+
+    Added json mapper
+
+[33mcommit fd3d8a077a896b2005c045d02b8280c428ddca29[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Tue May 12 16:22:05 2020 +0200
+
+    Correctly converted returned json into correct return class
+
+[33mcommit 6743e9223147bc80ec772d09f9ba08be82a3841c[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Tue May 12 15:53:38 2020 +0200
+
+    Removed exception toString method since it prevented printing stacktrace
+
+[33mcommit fdafad50def8410a7c04702048ada6e8e247f151[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Tue May 12 15:21:12 2020 +0200
+
+    Fixed code error when getting code from the exceptions
+
+[33mcommit cfd942eadb554e12b43f2c97dc4fe85183376dbd[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Tue May 12 12:14:52 2020 +0200
+
+    Improved the exceptions, improved documentation and updated features within the managers
+
+[33mcommit 9c86049211700738e4678c5e62659ea8765fd8a0[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Mon May 11 12:30:42 2020 +0200
+
+    Small improvements to make it easier to develop
+
+[33mcommit 9a9d57c8039e1570308af15378111ed9e7cf87fd[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Mon May 11 10:17:01 2020 +0200
+
+    Removed unneccessary files
+
+[33mcommit 15dab0776a4e47667fae374f3bd553ff74fdda96[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Mon May 11 10:14:13 2020 +0200
+
+    Added gitignore
+
+[33mcommit 844419584f2b183c669b10b0aa3d5a0c0a9ec916[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Mon May 11 10:13:50 2020 +0200
+
+    Removed vendor directory and added gitignore
+
+[33mcommit 46c5a143d3dc7888324988ea8c84ae5e6fe25d24[m
+Author: Martijn <info@greenhighway.nl>
+Date:   Mon May 11 10:13:14 2020 +0200
+
+    First version
+
+[33mcommit 1b54d43aaf49cf17573abd5e47b05642c50ce89a[m
+Author: Martijn Hiemstra <martyn.hiemstra@gmail.com>
+Date:   Mon May 11 08:51:10 2020 +0200
+
+    Initial commit

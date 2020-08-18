@@ -91,7 +91,7 @@ class TransactionsManager
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/transactions/' . $transaction_uid);
 
-            $data = json_decode('{ "escrow_date" => "' . $expire . '" }');
+            $data = json_decode('{ "escrow_date": "' . $expire . '" }');
             return RequestUtils::doCall($uri, 'POST', $this->apiKey, $data, null);
         } catch (Exception $exception) {
             throw new TransactionException('Could not expire transaction with id [' . $transaction_uid . ']. Message: ' . $exception->getMessage(), $exception->getCode(), $exception);

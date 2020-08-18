@@ -5,7 +5,6 @@ namespace OnlineBetaalPlatform\Manager;
 use Exception;
 use JsonMapper;
 use OnlineBetaalPlatform\Exception\NotificationException;
-use OnlineBetaalPlatform\Model\Notification;
 
 /**
  * Contains methodes to process notifications in the OBP system. 
