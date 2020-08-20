@@ -6,6 +6,7 @@ use Exception;
 use OnlineBetaalPlatform\Exception\TransactionException;
 use OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionRequest;
 use OnlineBetaalPlatform\Model\Transactions\Multi\MultiTransactionResponse;
+use OnlineBetaalPlatform\Model\Transactions\Single\ExpireTransaction;
 use OnlineBetaalPlatform\Model\Transactions\Single\SingleTransaction;
 use OnlineBetaalPlatform\Utils\RequestUtils;
 
@@ -86,13 +87,12 @@ class TransactionsManager
      * 
      * @return MultiTransactionResponse The requested multi transaction
      */
-    public function expireTransaction($transaction_uid, $expire)
+    public function expireTransaction($transaction_uid, ExpireTransaction $expireTransaction)
     {
         try {
             $uri = RequestUtils::createUrl($this->baseApiUrl, '/transactions/' . $transaction_uid);
 
-            $data = json_decode('{ "escrow_date": "' . $expire . '" }');
-            return RequestUtils::doCall($uri, 'POST', $this->apiKey, $data, null);
+            return RequestUtils::doCall($uri, 'POST', $this->apiKey, $expireTransaction, null);
         } catch (Exception $exception) {
             throw new TransactionException('Could not expire transaction with id [' . $transaction_uid . ']. Message: ' . $exception->getMessage(), $exception->getCode(), $exception);
         }
